@@ -1,2 +1,4 @@
 ccxt==1.72.1
 pandas==1.4.0
+numpy==1.22.1
+matplotlib==3.5.1
