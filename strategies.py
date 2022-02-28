@@ -24,4 +24,11 @@ def rsi_reversion(df: pd.DataFrame, low=30, high=70) -> pd.Series:
     return pos.ffill().fillna(0).astype(int)
 
 
-STRATEGIES = {"sma": sma_crossover, "rsi": rsi_reversion}
+def macd(df: pd.DataFrame, fast=12, slow=26, signal=9) -> pd.Series:
+    close = df["close"]
+    line = close.ewm(span=fast, adjust=False).mean() - close.ewm(span=slow, adjust=False).mean()
+    sig = line.ewm(span=signal, adjust=False).mean()
+    return (line > sig).astype(int)
+
+
+STRATEGIES = {"sma": sma_crossover, "rsi": rsi_reversion, "macd": macd}
