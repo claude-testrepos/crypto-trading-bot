@@ -8,3 +8,4 @@ venv/
 .ipynb_checkpoints/
 data/
 paper_state.json
+Thumbs.db
