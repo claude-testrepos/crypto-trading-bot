@@ -8,6 +8,7 @@ from pathlib import Path
 import ccxt
 import pandas as pd
 
+from notify import notify
 from strategies import STRATEGIES
 
 STATE = Path("paper_state.json")
@@ -39,10 +40,12 @@ def main():
             state["coins"] = state["cash"] * 0.999 / price
             state["cash"] = 0
             state["trades"].append({"t": datetime.utcnow().isoformat(), "side": "buy", "price": price})
+            notify(f"🟢 BUY {args.symbol} @ {price:,.2f}")
         elif not want_long and state["coins"] > 0:
             state["cash"] = state["coins"] * price * 0.999
             state["coins"] = 0
             state["trades"].append({"t": datetime.utcnow().isoformat(), "side": "sell", "price": price})
+            notify(f"🔴 SELL {args.symbol} @ {price:,.2f}  (portfolio ${state['cash']:,.2f})")
 
         value = state["cash"] + state["coins"] * price
         print(f"{datetime.now():%Y-%m-%d %H:%M} {args.symbol} {price:,.2f}  portfolio ${value:,.2f}")
