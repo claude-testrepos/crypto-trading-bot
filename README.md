@@ -1,6 +1,6 @@
 # Crypto Trading Bot
 
-Backtester and paper-trading bot I wrote while learnnig about crypto markets in early 2022 (spoiler: buy & hold lost a lot this year too). **Educational only, not financial advice.**
+Backtester and paper-trading bot I wrote while learning about crypto markets in early 2022 (spoiler: buy & hold lost a lot this year too). **Educational only, not financial advice.**
 
 ## Backtest
 
