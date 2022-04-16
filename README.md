@@ -23,3 +23,9 @@ python paper_trade.py --strategy sma --cash 1000
 ## Notifications
 
 Set `DISCORD_WEBHOOK_URL` to get a Discord message on every paper trade.
+
+## TODO
+
+- [ ] add more tests
+- [ ] add screenshots
+- [ ] clean up the code
